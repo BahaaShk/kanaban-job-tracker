@@ -165,9 +165,10 @@ grant select, insert, update, delete on applications to authenticated;
 - Supabase client setup (browser + server)
 - Login / Signup pages
 - Protected route middleware
+- Dark/Light mode toggle integration (ThemeProvider + UI Toggle)
 - Deploy to Vercel (live URL from day 1)
 
-**Files:** `lib/supabase/client.ts`, `lib/supabase/server.ts`, `middleware.ts`, `app/(auth)/login/page.tsx`, `app/(auth)/signup/page.tsx`
+**Files:** `lib/supabase/client.ts`, `lib/supabase/server.ts`, `middleware.ts`, `app/providers.tsx`, `components/ui/ThemeToggle.tsx`, `app/(auth)/login/page.tsx`, `app/(auth)/signup/page.tsx`
 
 ---
 
