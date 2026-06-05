@@ -1,7 +1,6 @@
 // middleware.ts
 // Lives at the ROOT of the project (same level as package.json)
 
-
 // HOW THIS FILE WORKS:
 // Next.js automatically runs the exported `middleware` function on every
 // matched request before the page renders. We use it for two things:
@@ -21,14 +20,40 @@ export const middleware = async (request: NextRequest) => {
         getAll: () => request.cookies.getAll(),
         setAll: (cookiesToSet) =>
           cookiesToSet.forEach(({ name, value, options }) => {
-            request.cookies.set(name, value)
-            response.cookies.set(name, value, options)
+            request.cookies.set(name, value);
+            response.cookies.set(name, value, options);
           }),
-        },
       },
-    );
-    const {data : {user}} = await supabase.auth.getUser()
+    },
+  );
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const protectedRoutes = ["/login", "/signup"];
+  const { pathname } = request.nextUrl;
+  const reqDashboard = pathname.startsWith("/dashboard");
+  const isProtected = protectedRoutes.some((route) =>
+    pathname.startsWith(route),
+  );
+
+  //Step 4
+  if (!user && reqDashboard)
+    return NextResponse.redirect(new URL("/login", request.url));
+  //Step 5
+  if (user && isProtected)
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+
+  //Step 6
+  return response;
 };
+
+export const config = {
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+  ],
+};
+
 // TODO: export an async function called `middleware`
 //   - receives one parameter: request (type: NextRequest)
 //
@@ -46,7 +71,7 @@ export const middleware = async (request: NextRequest) => {
 //           request.cookies.set(name, value)
 //           response.cookies.set(name, value, options)
 //         No try/catch needed here — middleware can always set cookies
-// 
+//
 //   STEP 3 — refresh the session
 //     Call: await supabase.auth.getUser()
 //     Store the result: const { data: { user } } = ...
