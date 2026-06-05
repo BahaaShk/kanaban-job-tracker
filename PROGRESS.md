@@ -35,13 +35,13 @@ Example of current file:
 
 ### Setup
 - [x] Next.js 16 project initialized (TypeScript, Tailwind, App Router, Turbopack)
-- [~] Supabase project created + `.env.local` configured
+- [x] Supabase project created + `.env.local` configured
 - [ ] Deployed to Vercel (live URL: _not yet_)
 
 ### Files
-- [ ] `lib/supabase/server.ts` — server-side Supabase client (cookie-based)
-- [ ] `lib/supabase/client.ts` — browser-side Supabase client
-- [ ] `middleware.ts` — protected route logic
+- [x] `lib/supabase/server.ts` — server-side Supabase client (cookie-based)
+- [x] `lib/supabase/client.ts` — browser-side Supabase client
+- [x] `middleware.ts` — protected route logic
 - [ ] `app/providers.tsx` — client-side providers (ThemeProvider)
 - [ ] `components/ui/ThemeToggle.tsx` — dark/light mode toggle component
 - [ ] `types/index.ts` — shared TypeScript types
