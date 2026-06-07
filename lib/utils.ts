@@ -19,3 +19,13 @@ export function formatDate(dateString: string | null) {
     return "—";
   }
 }
+
+export function isOverdue(dateString : string | null){
+if(!dateString) return false;
+
+const date = new Date(dateString)
+const dateToday = new Date()
+
+return dateToday > date 
+
+}
