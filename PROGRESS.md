@@ -45,7 +45,7 @@ Example of current file:
 - [ ] `app/providers.tsx` — client-side providers (ThemeProvider)
 - [ ] `components/ui/ThemeToggle.tsx` — dark/light mode toggle component
 - [x] `types/index.ts` — shared TypeScript types
-- [ ] `lib/utils.ts` — cn() and shared helpers
+- [x] `lib/utils.ts` — cn() and shared helpers
 - [ ] `app/(auth)/login/page.tsx` — login page UI + action
 - [ ] `app/(auth)/signup/page.tsx` — signup page UI + action
 - [ ] `actions/auth.ts` — signIn, signUp, signOut Server Actions
