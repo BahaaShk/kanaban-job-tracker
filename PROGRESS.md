@@ -48,7 +48,7 @@ Example of current file:
 - [x] `lib/utils.ts` — cn() and shared helpers
 - [ ] `app/(auth)/login/page.tsx` — login page UI + action
 - [ ] `app/(auth)/signup/page.tsx` — signup page UI + action
-- [ ] `actions/auth.ts` — signIn, signUp, signOut Server Actions
+- [x] `actions/auth.ts` — signIn, signUp, signOut Server Actions
 - [ ] `app/(dashboard)/layout.tsx` — protected layout, session check
 
 ---
