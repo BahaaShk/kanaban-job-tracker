@@ -19,11 +19,12 @@ export const signUp = async (formData: FormData): Promise<AuthResult> => {
   redirect("/dashboard");
 };
 export const signIn = async (formData: FormData) => {
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
   const supabase = await createClient();
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  const { error } = await supabase.auth.signInWithPassword({
+    email: formData.get('email') as string,
+    password: formData.get('password') as string,
+  })
 
   if (error) {
     return { error: error.message };
