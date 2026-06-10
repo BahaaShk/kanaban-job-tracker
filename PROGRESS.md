@@ -46,7 +46,7 @@ Example of current file:
 - [ ] `components/ui/ThemeToggle.tsx` — dark/light mode toggle component
 - [x] `types/index.ts` — shared TypeScript types
 - [x] `lib/utils.ts` — cn() and shared helpers
-- [ ] `app/(auth)/login/page.tsx` — login page UI + action
+- [x] `app/(auth)/login/page.tsx` — login page UI + action
 - [ ] `app/(auth)/signup/page.tsx` — signup page UI + action
 - [x] `actions/auth.ts` — signIn, signUp, signOut Server Actions
 - [ ] `app/(dashboard)/layout.tsx` — protected layout, session check
