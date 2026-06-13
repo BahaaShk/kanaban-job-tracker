@@ -7,6 +7,11 @@ import Link from "next/link";
 const LoginPage = () => {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
+ const togglePasswordVisibility = () => {
+  setShowPassword((prev) => !prev);
+};
 
   const handleSubmit = (formData: FormData) => {
     startTransition(async () => {
@@ -26,20 +31,45 @@ const LoginPage = () => {
         <form action={handleSubmit} className="mt-4 flex flex-col">
           {/* Email */}
           <div className=" mb-2">
-          <label htmlFor="email" className="text-sm font-medium text-text-secondary mb-2">E-mail</label>
-          <input
-            type="email"
-            className="border px-3 w-full border-border bg-surface py-1 rounded-md focus:outline-none focus:ring-2 text-text-primary"
-            name="email"
-            required
-            placeholder="Enter your email ..."
+            <label
+              htmlFor="email"
+              className="text-sm font-medium text-text-secondary"
+            >
+              E-mail
+            </label>
+            <input
+              type="email"
+              className="border px-3 w-full border-border bg-surface py-1 rounded-md focus:outline-none focus:ring-2 text-text-primary mt-1"
+              name="email"
+              required
+              placeholder="Enter your email ..."
             />
-            </div>
-            {/* Password */}
-            <div className=" mb-2">
+          </div>
+          {/* Password */}
+          <div className=" mb-4"
+      >
+            <label
+              htmlFor="password"
+              className="text-sm font-medium text-text-secondary"
+            >
+              Password
+            </label>
+            <div className="relative mt-1">
 
-          <label htmlFor="password" className="text-sm font-medium text-text-secondary mb-1">Password</label>
-          <input type="password" className="border px-3 w-full border-border bg-surface py-1 rounded-md focus:outline-none focus:ring-2 text-text-primary" name="password" />
+            <input
+              type={showPassword ? "text" : "password"}
+              required
+              className="border w-full pl-3 pr-14 border-border bg-surface py-1 rounded-md focus:outline-none focus:ring-2 text-text-primary"
+              name="password"
+              />
+            <button
+      type="button"
+      className="absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-text-secondary hover:text-text-primary focus:outline-none cursor-pointer"
+      onClick={togglePasswordVisibility}
+    >
+      {showPassword ? "Hide" : "Show"}
+    </button>
+              </div>
           </div>
           {/* error message  */}
           {errorMsg && <p className="text-danger text-sm mt-1">{errorMsg}</p>}
@@ -47,7 +77,7 @@ const LoginPage = () => {
             type="submit"
             disabled={isPending}
             className={`border bg-accent text-white py-2 px-4 rounded-md font-medium hover:bg-accent-hover mt-8 ${isPending ? "opacity-50 cursor-not-allowed" : ""}`}
-            >
+          >
             {isPending ? "Submitting..." : "Submit"}
           </button>
         </form>
