@@ -9,9 +9,9 @@ const LoginPage = () => {
   const [isPending, startTransition] = useTransition();
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
- const togglePasswordVisibility = () => {
-  setShowPassword((prev) => !prev);
-};
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   const handleSubmit = (formData: FormData) => {
     startTransition(async () => {
@@ -39,15 +39,14 @@ const LoginPage = () => {
             </label>
             <input
               type="email"
-              className="border px-3 w-full border-border bg-surface py-1 rounded-md focus:outline-none focus:ring-2 text-text-primary mt-1"
+              className="border px-3 w-full border-border bg-surface py-1 rounded-md focus:outline-none focus:ring-accent text-text-primary mt-1"
               name="email"
               required
               placeholder="Enter your email ..."
             />
           </div>
           {/* Password */}
-          <div className=" mb-4"
-      >
+          <div className=" mb-4">
             <label
               htmlFor="password"
               className="text-sm font-medium text-text-secondary"
@@ -55,21 +54,20 @@ const LoginPage = () => {
               Password
             </label>
             <div className="relative mt-1">
-
-            <input
-              type={showPassword ? "text" : "password"}
-              required
-              className="border w-full pl-3 pr-14 border-border bg-surface py-1 rounded-md focus:outline-none focus:ring-2 text-text-primary"
-              name="password"
+              <input
+                type={showPassword ? "text" : "password"}
+                required
+                className="border w-full pl-3 pr-14 border-border bg-surface py-1 rounded-md focus:outline-none focus:ring-accent text-text-primary"
+                name="password"
               />
-            <button
-      type="button"
-      className="absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-text-secondary hover:text-text-primary focus:outline-none cursor-pointer"
-      onClick={togglePasswordVisibility}
-    >
-      {showPassword ? "Hide" : "Show"}
-    </button>
-              </div>
+              <button
+                type="button"
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-text-secondary hover:text-text-primary focus:outline-none cursor-pointer"
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
           </div>
           {/* error message  */}
           {errorMsg && <p className="text-danger text-sm mt-1">{errorMsg}</p>}
