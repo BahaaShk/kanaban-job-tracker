@@ -42,7 +42,7 @@ Example of current file:
 - [x] `lib/supabase/server.ts` — server-side Supabase client (cookie-based)
 - [x] `lib/supabase/client.ts` — browser-side Supabase client
 - [x] `middleware.ts` — protected route logic
-- [~] `app/providers.tsx` — client-side providers (ThemeProvider)
+- [x] `app/providers.tsx` — client-side providers (ThemeProvider)
 - [ ] `components/ui/ThemeToggle.tsx` — dark/light mode toggle component
 - [x] `types/index.ts` — shared TypeScript types
 - [x] `lib/utils.ts` — cn() and shared helpers

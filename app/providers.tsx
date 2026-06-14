@@ -1,24 +1,52 @@
 // app/providers.tsx
 
-"use client"; // Required because providers utilize context/state, which are client-side only features.
-import React from "react";
+"use client"; 
+
 import { ThemeProvider } from "next-themes";
 
-// CONCEPT NOTE:
-// This file wraps the application with client-side providers.
-// Keeping it separate allows the root layout.tsx to remain a Server Component.
-// The ThemeProvider from next-themes automatically manages toggling the '.dark'
-// class on the <html> element based on user selection or system settings.
 
-interface ProvidersProps {
-  // TODO: Define a children prop of type React.ReactNode
+type ProvidersProps = {
+  children : React.ReactNode
+}
+const Providers = ({ children }: ProvidersProps) => {
+  return <ThemeProvider attribute={'class'} defaultTheme="system" enableSystem disableTransitionOnChange >{children}</ThemeProvider>;
 }
 
-export default function Providers({ children }: ProvidersProps) {
-  // TODO: Render ThemeProvider wrapping the children
-  //   - Set attribute to "class" (to match the .dark rule in globals.css)
-  //   - Set defaultTheme to "system"
-  //   - Enable system preference matching (enableSystem)
-  //   - Disable transition on theme changes to prevent styling flashes (disableTransitionOnChange)
-  return <div>{/* TODO: Return the children wrapped in ThemeProvider */}</div>;
-}
+export default Providers
+
+// app/providers.tsx
+
+// 'use client'
+
+// CONCEPT NOTE — What is this file and why does it exist?
+//
+// In Next.js App Router, the root layout (app/layout.tsx) is a Server Component by default.
+// Server Components cannot hold client-side state or use context providers — but ThemeProvider
+// (from next-themes) needs to wrap the entire app and runs on the client.
+//
+// The pattern: extract all client providers into a single <Providers> wrapper component,
+// then render it inside the root layout. The layout stays a Server Component; only
+// this file becomes a Client Component via 'use client'.
+//
+// If you ever add more client providers (e.g. a toast library, a query client), they go here too.
+
+// TODO: import ThemeProvider from 'next-themes'
+
+// TODO: define a Props type for this component
+//   - it accepts: children (type: React.ReactNode)
+
+// const Providers = () => {
+
+  // TODO: return ThemeProvider wrapping {children}
+  //   - set the `attribute` prop to 'class'
+  //     (this tells next-themes to toggle the 'dark' class on <html>, which is how Tailwind v4 dark mode works)
+  //   - set `defaultTheme` to 'system'
+  //     (respects the user's OS preference on first visit)
+  //   - set `enableSystem` to true
+  //     (allows the system preference to actually take effect)
+  //   - set `disableTransitionOnChange` to true
+  //     (prevents a flash/transition when toggling theme — cleaner UX)
+
+// }
+
+// export default Providers
