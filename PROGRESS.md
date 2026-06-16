@@ -43,13 +43,13 @@ Example of current file:
 - [x] `lib/supabase/client.ts` — browser-side Supabase client
 - [x] `middleware.ts` — protected route logic
 - [x] `app/providers.tsx` — client-side providers (ThemeProvider)
-- [ ] `components/ui/ThemeToggle.tsx` — dark/light mode toggle component
+- [x] `components/ui/ThemeToggle.tsx` — dark/light mode toggle component
 - [x] `types/index.ts` — shared TypeScript types
 - [x] `lib/utils.ts` — cn() and shared helpers
 - [x] `app/(auth)/login/page.tsx` — login page UI + action
 - [x] `app/(auth)/signup/page.tsx` — signup page UI + action
 - [x] `actions/auth.ts` — signIn, signUp, signOut Server Actions
-- [ ] `app/(dashboard)/layout.tsx` — protected layout, session check
+- [] `app/(dashboard)/layout.tsx` — protected layout, session check
 
 ---
 
