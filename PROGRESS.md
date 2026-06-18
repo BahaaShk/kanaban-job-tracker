@@ -56,7 +56,7 @@ Example of current file:
 ## Phase 2 — Kanban Board
 
 ### Files
-- [ ] `types/index.ts` — update with Application type + Status enum
+- [~] `types/index.ts` — update with Application type + Status enum
 - [ ] `actions/applications.ts` — createApplication, updateStatus, deleteApplication
 - [ ] `components/ui/Badge.tsx` — status badge primitive
 - [ ] `components/ui/Button.tsx` — button primitive
