@@ -49,7 +49,7 @@ Example of current file:
 - [x] `app/(auth)/login/page.tsx` — login page UI + action
 - [x] `app/(auth)/signup/page.tsx` — signup page UI + action
 - [x] `actions/auth.ts` — signIn, signUp, signOut Server Actions
-- [] `app/(dashboard)/layout.tsx` — protected layout, session check
+- [x] `app/(dashboard)/layout.tsx` — protected layout, session check
 
 ---
 
