@@ -1,6 +1,6 @@
 export type Status = "wishlist" | "applied" | "interview" | "offer" | "rejected";
 
-export interface Application {
+export type Application = {
   id: string;
   user_id: string;
   company: string;
@@ -17,7 +17,7 @@ export interface Application {
   updated_at: string;
 }
 
-export interface CreateApplicationInput {
+export type CreateApplicationInput = {
   company: string;
   role: string;
   status?: Status;
