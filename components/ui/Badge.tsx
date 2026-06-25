@@ -12,6 +12,7 @@
 // the status it receives.
 
 // TODO: import the Status type from '@/types'
+import { cn } from "@/lib/utils"
 import { Status } from "@/types"
 // TODO: define a Props type
 //   - status: Status
@@ -33,13 +34,15 @@ type Props = {
 const Badge = (props : Props) => {
 
   const { status } = props
-const ColorsArray = [
-  {name:"wishlist", bgColor:"bg-muted", textColor:"bg-muted/20"},
-  {name:"applied", bgColor:"bg-accent", textColor:"bg-accent/20"},
-  {name:"interview", bgColor:"bg-warning", textColor:"bg-warning/20"},
-  {name:"offer", bgColor:"bg-success", textColor:"bg-success/20"},
-  {name:"rejected", bgColor:"bg-danger", textColor:"bg-danger/20"},
-]
+
+  const statusStyles = {
+  wishlist: "bg-muted/20 text-muted",
+  applied: "bg-accent/20 text-accent",
+  interview: "bg-warning/20 text-warning",
+  offer: "bg-success/20 text-success",
+  rejected: "bg-danger/20 text-danger"
+}
+
 
   // TODO: figure out which color classes apply for this status
   //   - wishlist: muted/neutral colors
@@ -57,7 +60,7 @@ const ColorsArray = [
   return (
     <span>
       {/* TODO: render the status text inside the span */}
-      <span className="">{status}</span>
+      <span className= {cn()}>{status}</span>
       {/* TODO: apply the color classes you determined above */}
       {/* TODO: style as a pill:
             - small text size
