@@ -12,10 +12,12 @@
 // the status it receives.
 
 // TODO: import the Status type from '@/types'
-
+import { Status } from "@/types"
 // TODO: define a Props type
 //   - status: Status
-
+type Props = {
+  status: Status
+}
 // CONCEPT NOTE — mapping a value to styles
 //
 // You'll need a way to go from a status string to a specific set of
@@ -28,9 +30,16 @@
 // most scalable if you're comfortable with that pattern; a switch is
 // more explicit if you're not yet.
 
-const Badge = () => {
+const Badge = (props : Props) => {
 
-  // TODO: destructure `status` from props
+  const { status } = props
+const ColorsArray = [
+  {name:"wishlist", bgColor:"bg-muted", textColor:"bg-muted/20"},
+  {name:"applied", bgColor:"bg-accent", textColor:"bg-accent/20"},
+  {name:"interview", bgColor:"bg-warning", textColor:"bg-warning/20"},
+  {name:"offer", bgColor:"bg-success", textColor:"bg-success/20"},
+  {name:"rejected", bgColor:"bg-danger", textColor:"bg-danger/20"},
+]
 
   // TODO: figure out which color classes apply for this status
   //   - wishlist: muted/neutral colors
@@ -48,6 +57,7 @@ const Badge = () => {
   return (
     <span>
       {/* TODO: render the status text inside the span */}
+      <span className="">{status}</span>
       {/* TODO: apply the color classes you determined above */}
       {/* TODO: style as a pill:
             - small text size
