@@ -58,8 +58,8 @@ Example of current file:
 ### Files
 - [x] `types/index.ts` — update with Application type + Status enum
 - [x] `actions/applications.ts` — createApplication, updateStatus, deleteApplication
-- [~] `components/ui/Badge.tsx` — status badge primitive
-- [ ] `components/ui/Button.tsx` — button primitive
+- [x] `components/ui/Badge.tsx` — status badge primitive
+- [~] `components/ui/Button.tsx` — button primitive
 - [ ] `components/kanban/Card.tsx` — single application card
 - [ ] `components/kanban/Column.tsx` — kanban column with cards
 - [ ] `components/kanban/Board.tsx` — full board, drag and drop logic
