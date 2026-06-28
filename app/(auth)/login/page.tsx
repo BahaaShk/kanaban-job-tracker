@@ -79,7 +79,6 @@ const LoginPage = () => {
           >
             {isPending ? "Submitting..." : "Submit"}
           </button>
-          <Button variant="danger">Submit</Button>
         </form>
         <p className="mt-4 text-sm text-center text-text-secondary">
           Don&apos;t have an account ?{" "}
