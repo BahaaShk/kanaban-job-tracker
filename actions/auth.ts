@@ -16,7 +16,7 @@ export const signUp = async (formData: FormData): Promise<AuthResult> => {
     return { error: error.message };
   }
 
-  redirect("/dashboard");
+  redirect("/");
 };
 export const signIn = async (formData: FormData) => {
   const supabase = await createClient();
@@ -30,7 +30,7 @@ export const signIn = async (formData: FormData) => {
     return { error: error.message };
   }
 
-  redirect("/dashboard");
+  redirect("/");
 };
 export const signOut = async () => {
   const supabase = await createClient();

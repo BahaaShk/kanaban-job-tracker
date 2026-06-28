@@ -1,5 +1,9 @@
+import Button from "@/components/ui/Button"
+
 const DashboardPage = () => {
-  return <p>Dashboard coming soon</p>
+  return (
+    <Button variant="primary">Submit</Button>
+  ) 
 }
 
 export default DashboardPage

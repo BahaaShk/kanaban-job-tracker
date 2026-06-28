@@ -16,7 +16,7 @@ const Button = ({
   const ButtonStyles = {
     primary: "bg-accent text-white hover:bg-accent-hover",
     secondary: "bg-surface border border-surface text-text-primary hover:bg-surface/20",
-    danger: "bg-danger text-white hover:bg-danger/20",
+    danger: "bg-danger text-white hover:bg-danger/80",
   };
 
   return (
