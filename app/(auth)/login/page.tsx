@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import { signIn } from "@/actions/auth";
 import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 const LoginPage = () => {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -78,9 +79,10 @@ const LoginPage = () => {
           >
             {isPending ? "Submitting..." : "Submit"}
           </button>
+          <Button variant="danger">Submit</Button>
         </form>
         <p className="mt-4 text-sm text-center text-text-secondary">
-          Don't have an account ?{" "}
+          Don&apos;t have an account ?{" "}
           <Link href={"/signup"} className="text-accent">
             Sign up
           </Link>
