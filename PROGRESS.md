@@ -103,7 +103,7 @@ Example of current file:
 | Decision | Reason |
 |---|---|
 | Cookie-based Supabase server client | Required for App Router SSR — legacy createServerComponentClient is deprecated |
-| `@dnd-kit/core` for drag and drop | Lighter and more accessible than react-beautiful-dnd which is unmaintained |
+| `@dnd-kit/react` for drag and drop | dnd-kit shipped a full rewrite (`@dnd-kit/core`/`sortable`/`utilities` → `@dnd-kit/react`, new API: `DragDropProvider`, `useSortable()` returns `ref`/`isDragging`, no manual transform styling). Legacy packages are now maintenance-mode. Still lighter/more accessible than react-beautiful-dnd, which is unmaintained. |
 | Server Actions for all mutations | Avoids client-side fetch boilerplate, demonstrates App Router patterns properly |
 | No external state manager | App Router + Server Actions handles it — adding Zustand/Redux would be overkill |
 

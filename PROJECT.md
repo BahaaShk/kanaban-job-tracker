@@ -176,7 +176,7 @@ grant select, insert, update, delete on applications to authenticated;
 - Supabase schema + RLS + explicit grants
 - Server Actions: `createApplication`, `updateStatus`, `deleteApplication`
 - Kanban board UI — 5 columns
-- Drag and drop between columns (`@dnd-kit/core`)
+- Drag and drop between columns (`@dnd-kit/react`)
 - Application card with company, role, status badge, date
 
 **Files:** `actions/applications.ts`, `components/kanban/Board.tsx`, `components/kanban/Column.tsx`, `components/kanban/Card.tsx`, `app/(dashboard)/applications/page.tsx`
