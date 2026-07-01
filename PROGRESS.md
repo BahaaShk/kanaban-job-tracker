@@ -59,8 +59,8 @@ Example of current file:
 - [x] `types/index.ts` — update with Application type + Status enum
 - [x] `actions/applications.ts` — createApplication, updateStatus, deleteApplication
 - [x] `components/ui/Badge.tsx` — status badge primitive
-- [~] `components/ui/Button.tsx` — button primitive
-- [ ] `components/kanban/Card.tsx` — single application card
+- [x] `components/ui/Button.tsx` — button primitive
+- [~] `components/kanban/Card.tsx` — single application card
 - [ ] `components/kanban/Column.tsx` — kanban column with cards
 - [ ] `components/kanban/Board.tsx` — full board, drag and drop logic
 - [ ] `app/(dashboard)/applications/page.tsx` — kanban page (fetches + renders board)
@@ -91,6 +91,7 @@ Example of current file:
 - [ ] Loading states + skeleton screens on all data pages
 - [ ] Empty states designed (not just placeholder text)
 - [ ] Mobile responsive pass across all pages
+- [ ] Replace hardcoded <button> elements in login/signup pages with <Button> component
 - [ ] README.md with screenshots, live link, tech stack
 
 ---
