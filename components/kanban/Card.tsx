@@ -1,38 +1,19 @@
 // components/kanban/Card.tsx
 
 'use client'
-// client component — useSortable needs browser drag events, refs
 
 import { useSortable } from '@dnd-kit/react/sortable'
 import Badge from '../ui/Badge'
 import type { Application } from '@/types'
 
-// CONCEPT NOTE — @dnd-kit/react (new API):
-// useSortable({ id, index }) returns { ref, isDragging } — that's it.
-// - ref: attach directly to the root DOM node, dnd-kit handles positioning internally
-// - isDragging: boolean for visual feedback
-// No transform/transition to wire up manually, no CSS.Transform.toString(), no
-// spreading {...attributes} {...listeners} — the ref alone makes the element draggable.
-// `id` must match the id used in the parent's sortable group (application.id).
-// `index` is the item's current position in its column array — Column.tsx will pass this down.
-
-// Props this component receives:
-// - application: Application
-// - index: number (position within its column — required by useSortable)
-
-const Card = (application: Application, index:number) => {
+const Card = ({application, index}: {application: Application, index: number}) => {
 const {company, role, status, applied_at, follow_up_at, salary_max, salary_min} = application;
 const {ref, isDragging} = useSortable({id:application.id, index})
-  // TODO: destructure company, role, status, applied_at, follow_up_at, salary_min, salary_max from application prop
 
-  // TODO: call useSortable, passing { id: application.id, index }
-  //   - destructure ref, isDragging
+let isOverdue = false; 
 if(follow_up_at){
-  const isOverdue = new Date(follow_up_at) < new Date()
+  isOverdue = new Date(follow_up_at) < new Date()
 }
-  // TODO: determine if follow-up is overdue
-  //   - only check if follow_up_at exists (it's optional)
-  //   - compare as Date objects: new Date(follow_up_at) < new Date()
 let salaryString = "";
 
 if(salary_max && salary_min){
@@ -42,29 +23,29 @@ if(salary_max && salary_min){
 } else if (salary_min){
   salaryString = `$${salary_min.toLocaleString()}`
 }
-  // TODO: build a display string for salary range
-  //   - if both salary_min and salary_max exist, format as a range
-  //   - if only one exists, show that one
-  //   - if neither exists, don't render the salary line at all
-
-  return (
-    <div>
-      {/* TODO: root element gets ref={ref} — no style prop needed, no spread props */}
-      {/* card container: surface background, border, rounded corners, padding, shadow-sm */}
-      {/* reduce opacity on this element when isDragging is true */}
-      {/* add cursor-grab so it reads as draggable */}
-
-      {/* TODO: top row — company name (bold, primary text) and role (secondary text, smaller) stacked vertically */}
-
-      {/* TODO: render <Badge> with the status value */}
-
-      {/* TODO: if salary display string exists, render it — small, secondary text color */}
-
-      {/* TODO: if follow_up_at exists, render the date */}
-      {/*   - if overdue, danger color + small warning indicator */}
-      {/*   - if not overdue, secondary text color */}
+return (
+  <div ref={ref} className={ `bg-surface border rounded-2xl p-2 shadow-sm cursor-grab ${isDragging && "opacity-50"}`/* surface bg, border, rounded corners, padding, shadow-sm, cursor-grab — reduce opacity when isDragging */} >
+    
+    <div className={/* flex column, small gap between company and role */}>
+      <p className={/* bold, primary text color */}>{company}</p>
+      <p className={/* smaller, secondary text color */}>{role}</p>
     </div>
-  )
+
+    <Badge status={status} />
+
+    {salaryString && (
+      <p className={/* small text, secondary color */}>{salaryString}</p>
+    )}
+
+    {follow_up_at && (
+      <p className={isOverdue ? /* danger color */ : /* secondary color */}>
+        {/* format follow_up_at as a readable date here — look at date-fns or Intl.DateTimeFormat */}
+        {follow_up_at}
+      </p>
+    )}
+
+  </div>
+)
 }
 
 export default Card
