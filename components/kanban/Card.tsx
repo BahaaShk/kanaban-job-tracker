@@ -20,17 +20,28 @@ import type { Application } from '@/types'
 // - application: Application
 // - index: number (position within its column — required by useSortable)
 
-const Card = () => {
-
+const Card = (application: Application, index:number) => {
+const {company, role, status, applied_at, follow_up_at, salary_max, salary_min} = application;
+const {ref, isDragging} = useSortable({id:application.id, index})
   // TODO: destructure company, role, status, applied_at, follow_up_at, salary_min, salary_max from application prop
 
   // TODO: call useSortable, passing { id: application.id, index }
   //   - destructure ref, isDragging
-
+if(follow_up_at){
+  const isOverdue = new Date(follow_up_at) < new Date()
+}
   // TODO: determine if follow-up is overdue
   //   - only check if follow_up_at exists (it's optional)
   //   - compare as Date objects: new Date(follow_up_at) < new Date()
+let salaryString = "";
 
+if(salary_max && salary_min){
+  salaryString = `$${salary_min.toLocaleString()} - $${salary_max.toLocaleString()}`;
+} else if (salary_max){
+  salaryString = `$${salary_max.toLocaleString()}`
+} else if (salary_min){
+  salaryString = `$${salary_min.toLocaleString()}`
+}
   // TODO: build a display string for salary range
   //   - if both salary_min and salary_max exist, format as a range
   //   - if only one exists, show that one
