@@ -60,7 +60,7 @@ Example of current file:
 - [x] `actions/applications.ts` — createApplication, updateStatus, deleteApplication
 - [x] `components/ui/Badge.tsx` — status badge primitive
 - [x] `components/ui/Button.tsx` — button primitive
-- [~] `components/kanban/Card.tsx` — single application card
+- [x] `components/kanban/Card.tsx` — single application card
 - [ ] `components/kanban/Column.tsx` — kanban column with cards
 - [ ] `components/kanban/Board.tsx` — full board, drag and drop logic
 - [ ] `app/(dashboard)/applications/page.tsx` — kanban page (fetches + renders board)
